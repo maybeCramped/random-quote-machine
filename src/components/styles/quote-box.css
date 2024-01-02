@@ -1,0 +1,31 @@
+/* styles.css */
+
+.quote-box {
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .author {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .quote {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #555;
+  }
+  
+  .additional-content {
+    /* Add styles for the additional content at the bottom */
+    color: #777;
+    font-size: 0.9em;
+  }
+  

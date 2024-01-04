@@ -1,19 +1,37 @@
+import useRandomQuote from "../hooks/useRandomQuote";
 import "./styles/quote-box.css"; // Asegúrate de que la ruta sea correcta según tu estructura de archivos
 
 const QuoteBox = () => {
+  const { currentQuote, generateNewQuote } = useRandomQuote();
+  const quoteContentURIEncoded = encodeURIComponent(currentQuote.quote + "\n\n" + "-" + currentQuote.author);
+  const twitterURL =
+    "https://www.twitter.com/intent/tweet?text=" +
+    quoteContentURIEncoded;
   return (
     <div className="quote-box">
-      <div className="author">author</div>
-      <div className="quote">
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum."
+      <div className="quote" id="text">
+        "{currentQuote.quote}"
+        <div className="author" id="author">
+          {currentQuote.author}
+        </div>
       </div>
-      <div className="additional-content"></div>
+      <div className="additional-content">
+        <div>
+          <a
+            id="tweet-quote"
+            href={twitterURL}
+            target="_blank"
+            className="button-link"
+            rel="noopener noreferrer"
+          >
+            twett it
+          </a>
+     
+        </div>
+        <button id="new-quote" className="button" onClick={generateNewQuote}>
+          new quote
+        </button>
+      </div>
     </div>
   );
 };
